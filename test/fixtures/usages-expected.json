@@ -1,0 +1,2395 @@
+{
+  "usages": {
+    "01-single-quote.js": [
+      {
+        "file": "01-single-quote.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t('a.b'",
+        "calls": [
+          [
+            53,
+            61
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "02-double-quote-values.js": [
+      {
+        "file": "02-double-quote-values.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(\"a.b\"",
+        "calls": [
+          [
+            60,
+            89
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "\"",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "03-template-no-subst.js": [
+      {
+        "file": "03-template-no-subst.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`a.b`",
+        "calls": [
+          [
+            53,
+            61
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "`",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "04-pattern.js": [
+      {
+        "file": "04-pattern.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "reason": "parameter `x` of `dynamic`, which nothing calls",
+        "kind": "pattern",
+        "parts": [
+          {
+            "lit": "a."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "a.*",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`a.${x}`",
+        "calls": [
+          [
+            62,
+            73
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 5,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "05-opaque.js": [
+      {
+        "file": "05-opaque.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "reason": "parameter `key` of `lookup`, which nothing calls",
+        "kind": "opaque",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(key",
+        "calls": [
+          [
+            63,
+            69
+          ]
+        ],
+        "spans": []
+      }
+    ],
+    "06-two-on-one-line.js": [
+      {
+        "file": "06-two-on-one-line.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t('a.b') + ' / ' + t('a.b'",
+        "occurrences": 2,
+        "calls": [
+          [
+            52,
+            60
+          ],
+          [
+            71,
+            79
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          },
+          {
+            "start": 22,
+            "end": 25,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "07-multiline-comments.js": [
+      {
+        "file": "07-multiline-comments.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 4,
+        "end_line": 6,
+        "content": "t(\n  // 'a.b' — keep in sync with the design\n  /* t('a.b') */ 'a.b'",
+        "calls": [
+          [
+            109,
+            191
+          ]
+        ],
+        "spans": [
+          {
+            "start": 65,
+            "end": 68,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "08-not-a-call.js": [],
+    "09-formatjs-objects.js": [
+      {
+        "file": "09-formatjs-objects.js",
+        "form": "define-messages",
+        "fn": "defineMessages",
+        "origin": "descriptor",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 4,
+        "end_line": 4,
+        "content": "id: 'a.b'",
+        "calls": [
+          [
+            98,
+            107
+          ]
+        ],
+        "spans": [
+          {
+            "start": 5,
+            "end": 8,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "09-formatjs-objects.js",
+        "form": "define-messages",
+        "fn": "defineMessages",
+        "origin": "descriptor",
+        "rules": [],
+        "kind": "static",
+        "key": "c.d",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "id: 'c.d'",
+        "calls": [
+          [
+            147,
+            156
+          ]
+        ],
+        "spans": [
+          {
+            "start": 5,
+            "end": 8,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "09-formatjs-objects.js",
+        "form": "object-id",
+        "fn": "formatMessage",
+        "origin": "descriptor",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 8,
+        "end_line": 8,
+        "content": "id: 'a.b'",
+        "calls": [
+          [
+            241,
+            250
+          ]
+        ],
+        "spans": [
+          {
+            "start": 5,
+            "end": 8,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "10-jsx.tsx": [
+      {
+        "file": "10-jsx.tsx",
+        "form": "jsx-attr",
+        "fn": "FormattedMessage",
+        "origin": "descriptor",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "id=\"a.b\"",
+        "calls": [
+          [
+            131,
+            139
+          ]
+        ],
+        "spans": [
+          {
+            "start": 4,
+            "end": 7,
+            "delim": "\"",
+            "lang": "jsx-attr",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "10-jsx.tsx",
+        "form": "jsx-attr",
+        "fn": "FormattedMessage",
+        "origin": "descriptor",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 7,
+        "end_line": 7,
+        "content": "id={'a.b'}",
+        "calls": [
+          [
+            167,
+            177
+          ]
+        ],
+        "spans": [
+          {
+            "start": 5,
+            "end": 8,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "11-page.astro": [
+      {
+        "file": "11-page.astro",
+        "form": "call",
+        "fn": "t",
+        "origin": "factory",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 4,
+        "end_line": 4,
+        "content": "t('a.b'",
+        "calls": [
+          [
+            101,
+            109
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "11-page.astro",
+        "form": "call",
+        "fn": "t",
+        "origin": "factory",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 7,
+        "end_line": 7,
+        "content": "t('a.b')}>{t('a.b'",
+        "occurrences": 2,
+        "calls": [
+          [
+            176,
+            184
+          ],
+          [
+            187,
+            195
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          },
+          {
+            "start": 14,
+            "end": 17,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "11-page.astro",
+        "form": "call",
+        "fn": "t",
+        "origin": "factory",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 9,
+        "end_line": 9,
+        "content": "t('a.b'",
+        "calls": [
+          [
+            272,
+            280
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "11-page.astro",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 12,
+        "end_line": 12,
+        "content": "t('a.b'",
+        "calls": [
+          [
+            359,
+            367
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "12-escapes-and-unicode.js": [
+      {
+        "file": "12-escapes-and-unicode.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "name",
+        "rules": [],
+        "kind": "static",
+        "key": "it's.key",
+        "start_line": 2,
+        "end_line": 2,
+        "content": "t('it\\'s.key'",
+        "calls": [
+          [
+            74,
+            88
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 12,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "12-escapes-and-unicode.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "name",
+        "rules": [],
+        "kind": "static",
+        "key": "café.é",
+        "start_line": 2,
+        "end_line": 2,
+        "content": "t(\"café.é\"",
+        "calls": [
+          [
+            97,
+            108
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 11,
+            "delim": "\"",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "13-prefix.js": [
+      {
+        "file": "13-prefix.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "reason": "parameter `x` of `card`, which nothing calls",
+        "kind": "pattern",
+        "parts": [
+          {
+            "lit": "home.card."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".title"
+          }
+        ],
+        "pattern": "home.card.*.title",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`home.card.${x}.title`",
+        "calls": [
+          [
+            59,
+            84
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 13,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      },
+      {
+        "file": "13-prefix.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "home.card.notes.title",
+        "start_line": 4,
+        "end_line": 4,
+        "content": "t('home.card.notes.title'",
+        "calls": [
+          [
+            107,
+            133
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 24,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "13-prefix.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "reason": "parameter `x` of `concat`, which nothing calls",
+        "kind": "pattern",
+        "parts": [
+          {
+            "lit": "home.card."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "home.card.*",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "t('home.card.' + x",
+        "calls": [
+          [
+            164,
+            183
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 13,
+            "delim": "'",
+            "lang": "js",
+            "closed": true,
+            "head": true
+          }
+        ]
+      },
+      {
+        "file": "13-prefix.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "home.hero.title",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "t('home.hero.title'",
+        "calls": [
+          [
+            206,
+            226
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 18,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "14-lookalike-between-duplicates.js": [
+      {
+        "file": "14-lookalike-between-duplicates.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t('a.b') + log('a.b') + t('a.b'",
+        "occurrences": 2,
+        "calls": [
+          [
+            51,
+            59
+          ],
+          [
+            75,
+            83
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          },
+          {
+            "start": 27,
+            "end": 30,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "15-nested.js": [
+      {
+        "file": "15-nested.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t('a.b'",
+        "calls": [
+          [
+            54,
+            94
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "15-nested.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "a.c",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t('a.c'",
+        "calls": [
+          [
+            73,
+            91
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "17-conditional-keys.js": [
+      {
+        "file": "17-conditional-keys.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "'a.b'",
+        "calls": [
+          [
+            59,
+            80
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "17-conditional-keys.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch"
+        ],
+        "kind": "static",
+        "key": "c.d",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "'c.d'",
+        "calls": [
+          [
+            59,
+            80
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "18-alias-import.js": [
+      {
+        "file": "18-alias-import.js",
+        "form": "call",
+        "fn": "runtimeT",
+        "origin": "import",
+        "rules": [
+          "origin"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "runtimeT('a.b'",
+        "calls": [
+          [
+            65,
+            80
+          ]
+        ],
+        "spans": [
+          {
+            "start": 10,
+            "end": 13,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "18-alias-import.js",
+        "form": "call",
+        "fn": "runtimeT",
+        "origin": "import",
+        "rules": [
+          "origin"
+        ],
+        "kind": "static",
+        "key": "c.d",
+        "start_line": 4,
+        "end_line": 4,
+        "content": "runtimeT('c.d'",
+        "calls": [
+          [
+            103,
+            118
+          ]
+        ],
+        "spans": [
+          {
+            "start": 10,
+            "end": 13,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "19-factory-result.js": [
+      {
+        "file": "19-factory-result.js",
+        "form": "call",
+        "fn": "say",
+        "origin": "factory",
+        "rules": [
+          "origin"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "say('a.b'",
+        "calls": [
+          [
+            127,
+            137
+          ]
+        ],
+        "spans": [
+          {
+            "start": 5,
+            "end": 8,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "20-default-param.js": [
+      {
+        "file": "20-default-param.js",
+        "form": "call",
+        "fn": "translate",
+        "origin": "default-param",
+        "rules": [
+          "origin"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 4,
+        "end_line": 4,
+        "content": "translate('a.b'",
+        "calls": [
+          [
+            101,
+            117
+          ]
+        ],
+        "spans": [
+          {
+            "start": 11,
+            "end": 14,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "20-default-param.js",
+        "form": "call",
+        "fn": "say",
+        "origin": "default-param",
+        "rules": [
+          "origin"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 7,
+        "end_line": 7,
+        "content": "say('a.b'",
+        "calls": [
+          [
+            171,
+            181
+          ]
+        ],
+        "spans": [
+          {
+            "start": 5,
+            "end": 8,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "21-helper-tx.js": [
+      {
+        "file": "21-helper-tx.js",
+        "form": "helper-call",
+        "fn": "tx",
+        "origin": "helper",
+        "rules": [
+          "helper"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "tx('a.b'",
+        "calls": [
+          [
+            114,
+            123
+          ]
+        ],
+        "spans": [
+          {
+            "start": 4,
+            "end": 7,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "21-helper-tx.js",
+        "form": "helper-call",
+        "fn": "tx",
+        "origin": "helper",
+        "rules": [
+          "helper"
+        ],
+        "kind": "static",
+        "key": "c.d",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "tx('c.d'",
+        "calls": [
+          [
+            145,
+            154
+          ]
+        ],
+        "spans": [
+          {
+            "start": 4,
+            "end": 7,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "22-helper-getter.js": [
+      {
+        "file": "22-helper-getter.js",
+        "form": "helper-call",
+        "fn": "withLabel",
+        "origin": "helper",
+        "rules": [
+          "helper"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "'a.b'",
+        "calls": [
+          [
+            185,
+            214
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "22-helper-getter.js",
+        "form": "helper-call",
+        "fn": "withLabel",
+        "origin": "helper",
+        "rules": [
+          "const-eval",
+          "helper"
+        ],
+        "keys": [
+          "game.skill.p",
+          "game.skill.q"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "game.skill."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "game.skill.*",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "`game.skill.${id}`",
+        "calls": [
+          [
+            261,
+            298
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 12,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "23-helper-chain.js": [
+      {
+        "file": "23-helper-chain.js",
+        "form": "helper-template",
+        "fn": null,
+        "kind": "template",
+        "id": "23-helper-chain.js@flow:83:86",
+        "pattern": "lesson.step.*.title",
+        "parts": [
+          {
+            "lit": "lesson.step."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".title"
+          }
+        ],
+        "start_line": 4,
+        "end_line": 4,
+        "content": "`lesson.step.",
+        "spans": [
+          {
+            "start": 1,
+            "end": 13,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ],
+        "calls": []
+      },
+      {
+        "file": "23-helper-chain.js",
+        "form": "helper-call",
+        "fn": "step",
+        "origin": "helper",
+        "rules": [
+          "helper"
+        ],
+        "keys": [
+          "lesson.step.one.title"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "lesson.step.one.title"
+          }
+        ],
+        "pattern": "lesson.step.one.title",
+        "via": [
+          "23-helper-chain.js@flow:83:86"
+        ],
+        "start_line": 6,
+        "end_line": 6,
+        "content": "step('one'",
+        "calls": [
+          [
+            136,
+            147
+          ]
+        ],
+        "spans": []
+      },
+      {
+        "file": "23-helper-chain.js",
+        "form": "helper-call",
+        "fn": "step",
+        "origin": "helper",
+        "rules": [
+          "helper"
+        ],
+        "keys": [
+          "lesson.step.two.title"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "lesson.step.two.title"
+          }
+        ],
+        "pattern": "lesson.step.two.title",
+        "via": [
+          "23-helper-chain.js@flow:83:86"
+        ],
+        "start_line": 7,
+        "end_line": 7,
+        "content": "step('two'",
+        "calls": [
+          [
+            168,
+            179
+          ]
+        ],
+        "spans": []
+      },
+      {
+        "file": "23-helper-chain.js",
+        "form": "helper-call",
+        "fn": "tx",
+        "origin": "helper",
+        "rules": [
+          "helper"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 8,
+        "end_line": 8,
+        "content": "tx('a.b'",
+        "calls": [
+          [
+            200,
+            209
+          ]
+        ],
+        "spans": [
+          {
+            "start": 4,
+            "end": 7,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "24-branches.js": [
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch"
+        ],
+        "reason": "global `window`",
+        "kind": "opaque",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "typed",
+        "calls": [
+          [
+            81,
+            98
+          ]
+        ],
+        "spans": []
+      },
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "'a.b'",
+        "calls": [
+          [
+            81,
+            98
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "and",
+          "branch"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "'a.b'",
+        "calls": [
+          [
+            122,
+            139
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch"
+        ],
+        "reason": "global `window`",
+        "kind": "opaque",
+        "start_line": 7,
+        "end_line": 7,
+        "content": "typed",
+        "calls": [
+          [
+            164,
+            181
+          ]
+        ],
+        "spans": []
+      },
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 7,
+        "end_line": 7,
+        "content": "'a.b'",
+        "calls": [
+          [
+            164,
+            181
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch",
+          "lookup"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 8,
+        "end_line": 8,
+        "content": "'a.b'",
+        "calls": [
+          [
+            205,
+            245
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch",
+          "lookup"
+        ],
+        "kind": "static",
+        "key": "c.d",
+        "start_line": 8,
+        "end_line": 8,
+        "content": "'c.d'",
+        "calls": [
+          [
+            205,
+            245
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch"
+        ],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 9,
+        "end_line": 9,
+        "content": "'a.b' : typed === 'x' ? 'c.d' : 'a.b'",
+        "occurrences": 2,
+        "calls": [
+          [
+            269,
+            317
+          ],
+          [
+            269,
+            317
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          },
+          {
+            "start": 33,
+            "end": 36,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "24-branches.js",
+        "form": "call-branch",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "branch"
+        ],
+        "kind": "static",
+        "key": "c.d",
+        "start_line": 9,
+        "end_line": 9,
+        "content": "'c.d'",
+        "calls": [
+          [
+            269,
+            317
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 4,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "25-local-const.js": [
+      {
+        "file": "25-local-const.js",
+        "form": "local-template",
+        "fn": null,
+        "kind": "template",
+        "id": "25-local-const.js@132",
+        "pattern": "lesson.beat.*",
+        "parts": [
+          {
+            "lit": "lesson.beat."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "start_line": 6,
+        "end_line": 6,
+        "content": "key = `lesson.beat.",
+        "spans": [
+          {
+            "start": 7,
+            "end": 19,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ],
+        "calls": []
+      },
+      {
+        "file": "25-local-const.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval",
+          "local-var"
+        ],
+        "keys": [
+          "lesson.beat.cover.heading",
+          "lesson.beat.many.heading"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "lesson.beat."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".heading"
+          }
+        ],
+        "pattern": "lesson.beat.*.heading",
+        "via": [
+          "25-local-const.js@132"
+        ],
+        "start_line": 7,
+        "end_line": 7,
+        "content": "t(`${key}.heading`",
+        "calls": [
+          [
+            184,
+            203
+          ]
+        ],
+        "spans": []
+      },
+      {
+        "file": "25-local-const.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval",
+          "local-var"
+        ],
+        "keys": [
+          "lesson.beat.cover.body",
+          "lesson.beat.many.body"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "lesson.beat."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".body"
+          }
+        ],
+        "pattern": "lesson.beat.*.body",
+        "via": [
+          "25-local-const.js@132"
+        ],
+        "start_line": 7,
+        "end_line": 7,
+        "content": "t(`${key}.body`",
+        "calls": [
+          [
+            211,
+            227
+          ]
+        ],
+        "spans": []
+      }
+    ],
+    "26-array-map.js": [
+      {
+        "file": "26-array-map.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "tab.about.label",
+          "tab.home.label",
+          "tab.news.label"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "tab."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".label"
+          }
+        ],
+        "pattern": "tab.*.label",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`tab.${tab}.label`",
+        "calls": [
+          [
+            93,
+            114
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 7,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "27-const-table.js": [
+      {
+        "file": "27-const-table.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "nested.x.a",
+          "nested.x.b",
+          "nested.y.a",
+          "nested.y.c"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "nested."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": "."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "nested.*.*",
+        "start_line": 8,
+        "end_line": 8,
+        "content": "t(`nested.${group.id}.${item.id}`",
+        "calls": [
+          [
+            223,
+            257
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 10,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "28-entries-map.js": [
+      {
+        "file": "28-entries-map.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "icon.blue.name",
+          "icon.red.name"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "icon."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".name"
+          }
+        ],
+        "pattern": "icon.*.name",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "t(`icon.${id}.name`",
+        "calls": [
+          [
+            158,
+            178
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 8,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "29-two-templates.js": [
+      {
+        "file": "29-two-templates.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "lesson.takeaway.add.heading",
+          "lesson.takeaway.build.heading"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "lesson.takeaway."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".heading"
+          }
+        ],
+        "pattern": "lesson.takeaway.*.heading",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`lesson.takeaway.${icon}.heading`",
+        "calls": [
+          [
+            101,
+            137
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 19,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      },
+      {
+        "file": "29-two-templates.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "lesson.takeaway.add.text",
+          "lesson.takeaway.build.text"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "lesson.takeaway."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".text"
+          }
+        ],
+        "pattern": "lesson.takeaway.*.text",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`lesson.takeaway.${icon}.text`",
+        "calls": [
+          [
+            145,
+            178
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 19,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "30-cross-module.js": [
+      {
+        "file": "30-cross-module.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "lesson.step.one.title",
+          "lesson.step.two.title"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "lesson.step."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".title"
+          }
+        ],
+        "pattern": "lesson.step.*.title",
+        "start_line": 4,
+        "end_line": 4,
+        "content": "t(`lesson.step.${step.id}.title`",
+        "calls": [
+          [
+            112,
+            145
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 15,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "30-data.js": [],
+    "31-range-helper.js": [
+      {
+        "file": "31-range-helper.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "lesson.beat.cover.body1",
+          "lesson.beat.cover.body2",
+          "lesson.beat.many.body1"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "lesson.beat."
+          },
+          {
+            "wild": true
+          },
+          {
+            "lit": ".body"
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "lesson.beat.*.body*",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "t(`lesson.beat.${beat.id}.body${n}`",
+        "calls": [
+          [
+            243,
+            279
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 15,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "32-callsite-values.js": [
+      {
+        "file": "32-callsite-values.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "q.off",
+          "q.on"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "q."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "q.*",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`q.${opts.kind}`",
+        "calls": [
+          [
+            56,
+            75
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 5,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "33-guard-range.js": [
+      {
+        "file": "33-guard-range.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "m.0",
+          "m.1",
+          "m.2"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "m."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "m.*",
+        "start_line": 7,
+        "end_line": 7,
+        "content": "t(`m.${index}`",
+        "calls": [
+          [
+            179,
+            194
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 5,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "34-by-name.js": [
+      {
+        "file": "34-by-name.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "name",
+        "rules": [],
+        "kind": "static",
+        "key": "a.b",
+        "start_line": 2,
+        "end_line": 2,
+        "content": "t('a.b'",
+        "calls": [
+          [
+            39,
+            47
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ],
+    "35-counted-loop.js": [
+      {
+        "file": "35-counted-loop.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "m.0",
+          "m.1"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "m."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "m.*",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "t(`m.${index}`",
+        "calls": [
+          [
+            106,
+            121
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 5,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "36-mutated-table.js": [
+      {
+        "file": "36-mutated-table.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "reason": "parameter `id` of a callback over an unresolved collection",
+        "kind": "pattern",
+        "parts": [
+          {
+            "lit": "nested."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "nested.*",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "t(`nested.${id}`",
+        "calls": [
+          [
+            119,
+            136
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 10,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "37-escaped-function.js": [
+      {
+        "file": "37-escaped-function.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "reason": "function is passed to another function",
+        "kind": "pattern",
+        "parts": [
+          {
+            "lit": "q."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "q.*",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`q.${opts.kind}`",
+        "calls": [
+          [
+            56,
+            75
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 5,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "38-exported-caller.js": [],
+    "38-exported-fn.js": [
+      {
+        "file": "38-exported-fn.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "q.off",
+          "q.on"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "lit": "q."
+          },
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "q.*",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "t(`q.${opts.kind}`",
+        "calls": [
+          [
+            63,
+            82
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 5,
+            "delim": "`",
+            "lang": "js",
+            "closed": false,
+            "head": true
+          }
+        ]
+      }
+    ],
+    "16-literal-mentions.js": [
+      {
+        "file": "16-literal-mentions.js",
+        "form": "literal",
+        "fn": null,
+        "origin": null,
+        "rules": [],
+        "kind": "literal",
+        "sub": "key",
+        "key": "game.group.soccer",
+        "start_line": 3,
+        "end_line": 3,
+        "content": "'game.group.soccer'",
+        "calls": [
+          [
+            64,
+            83
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 18,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "16-literal-mentions.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [],
+        "kind": "static",
+        "key": "game.group.cello",
+        "start_line": 4,
+        "end_line": 4,
+        "content": "t('game.group.cello'",
+        "calls": [
+          [
+            108,
+            129
+          ]
+        ],
+        "spans": [
+          {
+            "start": 3,
+            "end": 19,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      },
+      {
+        "file": "16-literal-mentions.js",
+        "form": "call",
+        "fn": "t",
+        "origin": "import",
+        "rules": [
+          "const-eval"
+        ],
+        "keys": [
+          "game.group.soccer"
+        ],
+        "kind": "set",
+        "parts": [
+          {
+            "wild": true
+          }
+        ],
+        "pattern": "*",
+        "start_line": 5,
+        "end_line": 5,
+        "content": "t(groups[id]",
+        "calls": [
+          [
+            159,
+            172
+          ]
+        ],
+        "spans": []
+      },
+      {
+        "file": "16-literal-mentions.js",
+        "form": "literal",
+        "fn": null,
+        "origin": null,
+        "rules": [],
+        "kind": "literal",
+        "sub": "prefix",
+        "key": "game.",
+        "start_line": 6,
+        "end_line": 6,
+        "content": "'game.'",
+        "calls": [
+          [
+            197,
+            204
+          ]
+        ],
+        "spans": [
+          {
+            "start": 1,
+            "end": 6,
+            "delim": "'",
+            "lang": "js",
+            "closed": true
+          }
+        ]
+      }
+    ]
+  },
+  "catalog_keys": [
+    "a.b",
+    "a.c",
+    "c.d",
+    "it's.key",
+    "café.é",
+    "home.card.notes.title",
+    "home.card.about.title",
+    "home.hero.title",
+    "game.group.soccer",
+    "game.group.cello",
+    "hike.lake",
+    "hike.rock",
+    "game.skill.passing",
+    "game.skill.reading",
+    "game.skill.rhythm",
+    "lesson.beat.cover.heading",
+    "lesson.beat.many.heading",
+    "lesson.takeaway.add.heading",
+    "lesson.takeaway.add.text",
+    "lesson.takeaway.build.text",
+    "lesson.step.one.title",
+    "lesson.step.two.title",
+    "tab.home.label",
+    "tab.about.label",
+    "tab.news.label",
+    "icon.red.name",
+    "icon.blue.name",
+    "nested.x.a",
+    "nested.x.b",
+    "nested.y.a",
+    "nested.y.b",
+    "pre.one",
+    "pre.two",
+    "q.on",
+    "q.off",
+    "q.dflt",
+    "m.small",
+    "m.large",
+    "fixed.k1",
+    "fixed.k2"
+  ]
+}

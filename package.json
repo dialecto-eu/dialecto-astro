@@ -1,0 +1,42 @@
+{
+  "name": "@dialecto/astro",
+  "version": "2.3.0",
+  "description": "Dev-only in-context translation editing for Astro sites with flat JSON (ICU) catalogs, for use with Dialecto.",
+  "license": "MIT",
+  "author": "Mario Olivio Flores",
+  "type": "module",
+  "keywords": ["astro", "astro-integration", "i18n", "translation", "localization", "dialecto"],
+  "homepage": "https://dialecto.eu/docs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dialecto-eu/dialecto-astro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dialecto-eu/dialecto-astro/issues"
+  },
+  "exports": {
+    ".": "./dialecto-in-context.mjs",
+    "./usages": "./dialecto-usages.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dialecto-astro": "./dialecto-in-context.mjs"
+  },
+  "files": [
+    "dialecto-in-context.mjs",
+    "dialecto-usages.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "devDependencies": {
+    "@astrojs/compiler-rs": "0.5.1",
+    "@babel/parser": "7.29.9",
+    "rolldown": "1.2.7"
+  }
+}

@@ -1,0 +1,13 @@
+---
+import { getTranslator } from '../i18n/index.js';
+const t = getTranslator('en');
+const heading = t('a.b');
+---
+<!-- t('a.b') in an HTML comment is not a use -->
+<h1 title={t('a.b')}>{t('a.b')}</h1>
+<p>t('a.b') as plain text is not a use</p>
+<ul>{items.map((i) => <li>{t('a.b')}</li>)}</ul>
+<script>
+  import { t } from '../i18n/runtime.js';
+  console.log(t('a.b'));
+</script>
