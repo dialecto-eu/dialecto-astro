@@ -15,13 +15,28 @@ Documentation lives at [dialecto.eu/docs](https://dialecto.eu/docs).
 
 ## Setup
 
-Install the package as a dev dependency:
+The package is not published to npm yet, so there are two ways to add it today.
+
+**Copy one file.** This needs no dependency. Copy `dialecto-in-context.mjs` from this repository into your site (for
+example into `tooling/`), or download it from the **In-context editing** card in your project's settings in Dialecto,
+and import it by path in `astro.config.mjs`:
+
+```js
+import dialectoInContext from './tooling/dialecto-in-context.mjs';
+
+export default defineConfig({ integrations: [dialectoInContext()] });
+```
+
+The CI commands below are shown this way, as `node tooling/dialecto-in-context.mjs`.
+
+**Install from GitHub.** Install the package as a dev dependency straight from this repository:
 
 ```
-npm install --save-dev @dialecto/astro
+npm install --save-dev --allow-git=all git+https://github.com/dialecto-eu/dialecto-astro.git
 ```
 
-and add one line to `astro.config.mjs`:
+Newer versions of npm refuse git installs unless you pass `--allow-git=all`. The package keeps its name,
+`@dialecto/astro`, so the import is:
 
 ```js
 import dialectoInContext from '@dialecto/astro';
@@ -29,12 +44,13 @@ import dialectoInContext from '@dialecto/astro';
 export default defineConfig({ integrations: [dialectoInContext()] });
 ```
 
-If you would rather not add a dependency, you can copy `dialecto-in-context.mjs` into the site (for example
-`tooling/`) and import it by path instead. The CI commands below are shown that way, as
-`node tooling/dialecto-in-context.mjs`; with the package installed, the same commands run as `npx dialecto-astro`.
+With the package installed, the CI commands below run as `npx dialecto-astro` instead of
+`node tooling/dialecto-in-context.mjs`. Once the package is on npm, `npm install --save-dev @dialecto/astro` will do
+the same.
 
 Run `astro dev`. An "Edit text" button appears bottom-right on every page. The editor signs in with your
-Dialecto account; the first time, a Dialecto window asks you to allow it.
+Dialecto account; the first time, a Dialecto window asks you to allow it. Dialecto is in a soft launch, and the app
+at `https://app.dialecto.eu` is open to early-access teams by email at info@dialecto.eu.
 
 The add-on finds the project on its own: it reads the site's git remote and Dialecto matches it to your
 project, so there is nothing else to configure.
@@ -178,7 +194,7 @@ your translation files" card on its settings page shows this workflow with your 
      borrows your site's parsers. It runs `node tooling/dialecto-in-context.mjs scan`
      with permission to read the repository, which sends the catalogs and where the code reads each key,
      both from the pushed commit. Dialecto offers a rename only for keys it has call-site data for.
-   - `rename` runs on pull requests Dialecto opens (head branch starting `dlocal/`, from your own
+   - `rename` runs on pull requests Dialecto opens (head branch starting `dialecto/`, from your own
      repository), also on Node 22 after `npm ci`. It runs the `dialecto-eu/source-rewrite@v1` action with `commit: true`, which applies the
      code changes from the pull request body and pushes them to the branch, then
      `node tooling/dialecto-in-context.mjs check`. This job has `contents: write` and `pull-requests: read`.
