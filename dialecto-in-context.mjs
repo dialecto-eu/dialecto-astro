@@ -417,17 +417,36 @@ function validEdits(payload) {
 }
 
 const LOOPBACK_HOST = /^(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/;
+const LOOPBACK_V4 = /^127\.\d{1,3}\.\d{1,3}\.\d{1,3}$/;
 const loopbackHost = (host) => typeof host === 'string' && LOOPBACK_HOST.test(host);
+
+// The Host header is the client's to choose, so the socket's peer must be loopback too: a LAN
+// peer of a dev server started with `--host` can send `Host: localhost`. X-Forwarded-For is
+// never read.
+function loopbackPeer(req) {
+  const address = req.socket?.remoteAddress;
+  if (typeof address !== 'string') return false;
+  const v4 = address.toLowerCase().startsWith('::ffff:') ? address.slice(7) : address;
+  return v4 === '::1' || LOOPBACK_V4.test(v4);
+}
+
+const loopbackRequest = (req) => loopbackHost(req.headers.host) && loopbackPeer(req);
+
+/**
+ * A POST of overrides must come from this site's own page on a loopback host: a page on another
+ * site must not be able to rewrite the dev catalogs, and the loopback Host check closes the
+ * DNS-rebinding variant (attacker origin == attacker host).
+ */
+export function overridesRequestAllowed(req, scheme) {
+  const { host, origin } = req.headers;
+  return loopbackRequest(req) && origin !== undefined && origin === `${scheme}://${host}`;
+}
 
 async function handleOverrides(req, res, server, replaceOverrides) {
   if (req.method !== 'POST') return send(res, 405, { error: 'method_not_allowed' });
 
-  // Same-origin only: a page on another site must not be able to rewrite the dev catalogs.
-  // The loopback Host check closes the DNS-rebinding variant (attacker origin == attacker host).
   const scheme = server.config.server.https ? 'https' : 'http';
-  if (!loopbackHost(req.headers.host) || !req.headers.origin || req.headers.origin !== `${scheme}://${req.headers.host}`) {
-    return send(res, 403, { error: 'forbidden_origin' });
-  }
+  if (!overridesRequestAllowed(req, scheme)) return send(res, 403, { error: 'forbidden_origin' });
   if (Number(req.headers['content-length'] ?? 0) > MAX_BODY) return send(res, 413, { error: 'too_large' });
 
   const raw = await readBody(req);
@@ -550,7 +569,7 @@ export function createContextReader(settings, { git: gitRun = gitContext, ttlMs 
  */
 export function contextRequestAllowed(req, scheme) {
   const { host, origin } = req.headers;
-  if (!loopbackHost(host)) return false;
+  if (!loopbackRequest(req)) return false;
   if (origin !== undefined && origin !== `${scheme}://${host}`) return false;
   const site = req.headers['sec-fetch-site'];
   return site === undefined || site === 'same-origin';

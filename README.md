@@ -100,8 +100,10 @@ other host the editor won't load.
   remote, the configured project, the current branch and commit, and which catalog files have uncommitted
   changes. The overlay hands this to the editor so it opens the right project and knows which branch you
   are on. It is computed from git on request and never sent anywhere else.
-- Serves `POST /__dialecto/overrides` (same-origin only) so drafts render through the app's real ICU code
-  paths after a reload.
+- Serves `POST /__dialecto/overrides` (same-origin, loopback only) so drafts render through the app's real
+  ICU code paths after a reload.
+- "Loopback only" means both the `Host` and the connection itself: another device on your network gets a 403
+  even when you start the dev server with `--host` and it sends `Host: localhost`.
 
 Dialecto reads the catalogs from GitHub when you push, so the add-on does not scan anything when the dev
 server starts.
