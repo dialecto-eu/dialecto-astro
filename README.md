@@ -1,3 +1,12 @@
+<p align="center">
+  <a href="https://dialecto.eu">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset=".github/brand/readme-banner-dark.svg">
+      <img alt="Dialecto" src=".github/brand/readme-banner-light.svg" width="420">
+    </picture>
+  </a>
+</p>
+
 # @dialecto/astro
 
 In-context editing for Astro sites, for use with [Dialecto](https://dialecto.eu). `dialecto-in-context.mjs` is
